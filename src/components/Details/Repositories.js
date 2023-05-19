@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { RiGitRepositoryLine, RiStarFill } from "react-icons/ri";
 import { GrLanguage } from "react-icons/gr";
 import { IoResizeSharp } from "react-icons/io5";
-// import { v1 as uuidv1 } from 'uuid';
 import { v4 as uuidv4 } from 'uuid';
 import './Repo.css';
 

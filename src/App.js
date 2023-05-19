@@ -1,6 +1,4 @@
-
-import React, { useState } from 'react';
-// import UserContext from './components/context/UserContext';
+import React from 'react';
 import UserDetail from './components/Details/UserDetail';
 import Navbar from './components/Navbar/Navbar';
 import UserSearch from './components/Search/UserSearch';
@@ -10,11 +8,8 @@ import About from './components/Details/About';
 
 function App() {
 
-  const [user, setUser] = useState('hello world');
-
   return (
     <>
-      {/* <UserContext.Provider value={[user, setUser]}> */}
       <div className='flex flex-col'>
         <Navbar />
         <Router>
@@ -24,11 +19,9 @@ function App() {
               <Route path="/user/:username" element={<UserDetail />} />
               <Route path="/about" element={<About />} />
             </Routes>
-            {/* <UserSearch /> */}
           </main>
         </Router>
       </div>
-      {/* </UserContext.Provider> */}
     </>
   );
 }

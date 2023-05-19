@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react"
+import { useState, useEffect } from "react"
 import BarChart from "../Charts/BarChart";
 import DoughnutChart from "../Charts/DoughnutChart";
 import PieChart from "../Charts/PieChart";

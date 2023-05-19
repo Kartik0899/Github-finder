@@ -1,12 +1,9 @@
-import React, { useContext, useState } from 'react';
-// import UserContext from '../context/UserContext';
+import React, { useState } from 'react';
 import logo from '../images/Github.png';
 import { useNavigate } from 'react-router-dom';
 
 const UserSearch = () => {
     const navigate = useNavigate();
-
-
     const [text, setText] = useState('');
     // console.log('search text', text);
 
