@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { RiGitRepositoryLine, RiStarFill } from "react-icons/ri";
 import { GrLanguage } from "react-icons/gr";
 import { IoResizeSharp } from "react-icons/io5";
@@ -11,15 +11,15 @@ const Repositories = ({ username }) => {
     // console.log('Repositories', repoData);
     let finalData = [];
 
-    const apiHandler = async () => {
-        const resp = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`)
-        const data = await resp.json()
-        setRepoData(data)
-    }
+    const apiHandler = useCallback(async () => {
+        const resp = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`);
+        const data = await resp.json();
+        setRepoData(data);
+    }, [username]);
 
     useEffect(() => {
         apiHandler();
-    }, []);
+    }, [apiHandler]);
 
     if (repoData) {
         finalData = repoData.map((repo) => ({
@@ -67,47 +67,4 @@ const Repositories = ({ username }) => {
         </div>
     );
 };
-// const AllRepoContainer = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   flex-wrap: wrap;
-//   max-width: 2200px;
-// `;
-// const RepoContainer = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-between;
-//   background: #fff;
-//   border-radius: 10px;
-//   font-size: 1.25rem;
-//   height: 20rem;
-//   width: 33.5rem;
-//   margin: 1rem;
-//   padding: 4rem;
-//   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-//   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-//   :hover {
-//     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-//   }
-//   h2 {
-//     white-space: nowrap;
-//     overflow: hidden;
-//     text-overflow: ellipsis;
-//   }
-//   p {
-//     color: #2e2e2e;
-//     white-space: nowrap;
-//     overflow: hidden;
-//     text-overflow: ellipsis;
-//   }
-//   @media only screen and (max-width: 600px) {
-//         width: 45rem;
-//   }
-// `;
-
-// const RepoBottom = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-// `;
 export default Repositories;
