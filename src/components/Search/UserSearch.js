@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import UserContext from '../context/UserContext';
+// import UserContext from '../context/UserContext';
 import logo from '../images/Github.png';
 import { useNavigate } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ const UserSearch = () => {
 
     return (
         <>
-            <div className='flex justify-center items-center flex-col'>
+            <div className='flex justify-center items-center flex-col bg-[#2a303c] h-screen'>
 
                 <img src={logo} alt="github logo png" className='w-[250px]' />
 
@@ -30,14 +30,14 @@ const UserSearch = () => {
                                 <div className='relative'>
                                     <input
                                         type='text'
-                                        className='w-full pr-40 bg-gray-200 input input-lg text-black'
+                                        className='w-full pr-40 bg-gray-200 input input-lg text-black h-14 rounded-lg pl-5'
                                         placeholder='Search'
                                         value={text}
                                         onChange={(e) => setText(e.target.value)}
                                     />
                                     <button
                                         type='submit'
-                                        className='absolute top-0 right-0 rounded-l-none w-36 btn btn-lg'
+                                        className='absolute top-0 right-0 rounded-l-none rounded-r-lg w-36 btn btn-lg bg-[#191d24] h-14 text-[#a6adbb] text-xl'
                                     >
                                         Go
                                     </button>

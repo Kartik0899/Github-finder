@@ -1,12 +1,11 @@
 
 import React, { useState } from 'react';
-
-import './App.css';
-import UserContext from './components/context/UserContext';
+// import UserContext from './components/context/UserContext';
 import UserDetail from './components/Details/UserDetail';
 import Navbar from './components/Navbar/Navbar';
 import UserSearch from './components/Search/UserSearch';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import About from './components/Details/About';
 
 
 function App() {
@@ -16,13 +15,14 @@ function App() {
   return (
     <>
       {/* <UserContext.Provider value={[user, setUser]}> */}
-      <div className='flex flex-col h-screen'>
+      <div className='flex flex-col'>
         <Navbar />
         <Router>
-          <main className='container mx-auto px-3 pb-12'>
+          <main className='mx-auto w-full'>
             <Routes>
               <Route exact path="/" element={<UserSearch />} />
               <Route path="/user/:username" element={<UserDetail />} />
+              <Route path="/about" element={<About />} />
             </Routes>
             {/* <UserSearch /> */}
           </main>
